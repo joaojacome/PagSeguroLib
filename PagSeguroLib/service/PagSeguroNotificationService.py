@@ -24,8 +24,9 @@ class PagSeguroNotificationService:
             httpStatus = PagSeguroHttpStatus(connection.getStatus())
             httpStatusType = httpStatus.getType()
             if httpStatusType == 'OK':
-                transaction = PagSeguroTransactionParser.readTransaction(connection.getResponse())
-                LogPagSeguro.info("PagSeguroNotificationService.CheckTransaction(notificationCode=%s) - end %s" % (notificationCode, transaction))
+                response = connection.getResponse()
+                transaction = PagSeguroTransactionParser.readTransaction(response)
+                #LogPagSeguro.info("PagSeguroNotificationService.CheckTransaction(notificationCode=%s) - end %s" % (notificationCode, transaction))
             elif httpStatusType == 'BAD_REQUEST':
                 errors = PagSeguroTransactionParser.readErrors(connection.getResponse())
                 e = PagSeguroServiceException(httpStatus, errors)

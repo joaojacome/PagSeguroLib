@@ -1,6 +1,5 @@
 from datetime import datetime
 from time import time
-from decimal import Decimal
 class PagSeguroHelper:
     @classmethod
     def formatDate(cls, date):
@@ -8,7 +7,6 @@ class PagSeguroHelper:
         if isinstance(date, datetime):
             d = date.strftime(_format)
         elif isinstance(date, int):
-            #time.localtime(date)
             d = datetime.strptime(time.localtime(date), _format)
         else:
             d = date
@@ -16,5 +14,4 @@ class PagSeguroHelper:
     
     @classmethod
     def decimalFormat(cls, number):
-        TWOPLACES = Decimal(10) ** -2
-        return Decimal(number).quantize(TWOPLACES)
+        return "%.2f" % number

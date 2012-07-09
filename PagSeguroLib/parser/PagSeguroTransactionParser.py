@@ -64,7 +64,7 @@ class PagSeguroTransactionParser(PagSeguroServiceParser):
         if 'status' in data:
             transaction.setStatus(data['status'])
             
-        if 'paymentMethod' in data and isinstance(data['paymentMethod'], (list, tuple)):
+        if 'paymentMethod' in data:
             paymentMethod = PagSeguroPaymentMethod()
             if 'type' in data['paymentMethod']:
                 paymentMethod.setType(data['paymentMethod']['type'])

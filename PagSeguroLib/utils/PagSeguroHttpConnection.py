@@ -36,7 +36,6 @@ class PagSeguroHttpConnection:
                 postFields = ""
         else:
             postFields = ""
-        
         #urrllib.getcode()
         try:
             headers = {

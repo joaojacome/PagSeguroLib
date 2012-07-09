@@ -9,14 +9,14 @@ class PagSeguroHttpStatus:
         502: 'BAD_GATEWAY'
     }
     status = None
-    type = None
+    _type = None
     
     def __init__(self, status):
         self.status = status
-        self.type = self.getTypeByStatus(status)
+        self._type = self.getTypeByStatus(status)
         
     def getType(self):
-        return self.type
+        return self._type
     
     def getStatus(self):
         return self.status

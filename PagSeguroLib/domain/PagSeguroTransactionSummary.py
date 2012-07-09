@@ -45,10 +45,10 @@ class PagSeguroTransactionSummary:
         self.grossAmount = grossAmount
 
     def getType(self):
-        return self.type
+        return self._type
 
     def setType(self, _type):
-        self.type = _type
+        self._type = _type
 
     def getStatus(self):
         return self.status

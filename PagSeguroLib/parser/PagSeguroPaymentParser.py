@@ -24,7 +24,6 @@ class PagSeguroPaymentParser(PagSeguroServiceParser):
                     data['senderNumber'] = sender.getPhone().getAreaCode()
         if payment.getCurrency() != None:
             data['currency'] = payment.getCurrency()
-            
         items = payment.getItems()
         if len(items) > 0:
             x=0
@@ -46,10 +45,8 @@ class PagSeguroPaymentParser(PagSeguroServiceParser):
                 if v.getWeight() != None:
                     data["itemWeight%s" % x] = v.getWeight()
   
-                    
                 if v.getShippingCost() != None:
                     data["itemShippingCost%s" % x] = PagSeguroHelper.decimalFormat(v.getShippingCost())
-             
         if payment.getExtraAmount() != None:
             data['extraAmount'] = PagSeguroHelper.decimalFormat(payment.getExtraAmount())   
 

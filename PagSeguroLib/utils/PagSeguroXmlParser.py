@@ -71,9 +71,9 @@ class PagSeguroXmlParser:
     def __init__(self, xml, _type='transaction'):
         try:
             tree = etree.parse(StringIO.StringIO(xml))
-        except etree.XMLSyntaxError as e:
+        except etree.XMLSyntaxError:
             return False
-        except etree.DocumentInvalid as e:
+        except etree.DocumentInvalid:
             return False
         except:
             return False

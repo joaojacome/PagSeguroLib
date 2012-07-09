@@ -60,7 +60,7 @@ class PagSeguroConfig(Singleton):
 
     @classmethod
     def logIsActive(cls):
-        if 'log' in cls.data and 'active' in cls.data['log']:
+        if 'log' in cls.data and 'active' in cls.data['log'] and cls.data['log']['active'] == True:
             return True
         return False
         #raise NameError("Log activation flag not set.")

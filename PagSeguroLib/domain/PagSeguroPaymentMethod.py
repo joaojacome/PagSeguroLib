@@ -12,7 +12,7 @@ class PagSeguroPaymentMethod:
             self.setCode(code)
             
     def getType(self):
-        return self.type
+        return self._type
     
     def setType(self, _type):
         if isinstance(_type, PagSeguroPaymentMethodType):
